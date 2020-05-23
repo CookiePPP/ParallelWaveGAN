@@ -107,7 +107,11 @@ class AudioMelDataset(Dataset):
         utt_id = self.utt_ids[idx]
         audio = self.audio_load_fn(self.audio_files[idx])
         mel = self.mel_load_fn(self.mel_files[idx])
-
+        
+        print("mel.mean()", mel.mean())
+        print("mel.max()", mel.max())
+        print("mel.min()", mel.min())
+        
         if self.return_utt_id:
             items = utt_id, audio, mel
         else:
